@@ -15,7 +15,8 @@
 |---|---|---|---|
 |RideID|serial|unique identifier of Ride|primary key|
 |RideName|varchar(255)|Name of Ride|not null|
-|RideDisct|varchar(255)|Description of Ride|not null|
+|RideDisct|varchar(255)|Description of Ride||
+|RideImagePath|varcahr(100)|Absolut path of Ride Image||
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
