@@ -15,7 +15,7 @@
 |---|---|---|---|
 |RideID|serial|unique identifier of Ride|primary key|
 |RideName|varchar(255)|Name of Ride|not null|
-|RideDisct|varchar(255)|Description of Ride||
+|RideDisct|varchar(n)|Description of Ride||
 |RideImagePath|varcahr(100)|Absolut path of Ride Image||
 
 ##### คำอธิบายเพิ่มเติม
@@ -37,11 +37,11 @@
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
 |CartID|serial|unique identifier of CartToOut|primary key|
-|VId|integer|VId from CartToOut table Visitor(foreign key)|[ref: > Visitor.VId]|
+|VId|integer|VId from Visitor table Visitor(foreign key)|[ref: > Visitor.VId]|
 |BookDate|timestamp|time Visitor make Booking|[default: "Current Time"]|
-|Status|enum BookStatus {"Booked","NotBookYet","Used/Expire"}|Status about Visitor mankeing Book yet |[default: "NotBookYet"]|
+|Status|enum BookStatus {"Booked","NotBookYet","Used/Expire"}|Status about Visitor making Book yet |[default: "NotBookYet"]|
 |VisitDate|date|Date visitor will be come|[default: "Tomorrow"|
-|TotalPrice|decimal|Price of all|[default: 5]|
+|TotalPrice|decimal(10,2)|Price of all Ticket that booked||
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
@@ -49,11 +49,9 @@
 ### ตาราง RideTicketPrice
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|ChildrenPrice|decimal(10,2)|Price for Children|[default: 100]|
-|AdultPrice|decimal(10,2)|Price for Adult|[default: 100]|
-|SeniorPrice|decimal(10,2)|Price for Senior|[default: 100]|
-|FastPassPrice|decimal(10,2)|price of Fastpass|[default: 100]|
-|RideID|int|in case each Ride differece price|[ref: - Ride.RideID]|
+|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|not null, composite key|
+|TicketPrice|decimal(10,2)|Price of the ticket|default: 100|
+|RideID|int|in case each Ride differece price|[ref: - Ride.RideID, composite key]|
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
