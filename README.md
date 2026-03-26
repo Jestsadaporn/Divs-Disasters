@@ -4,7 +4,7 @@
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
 |VId|serial|unique identifier of Visitor|primary key|
-|VUserName|varchar(60)|Visitor Username|not null|
+|VUserName|varchar(60)|Visitor Username|not null, unique|
 |VPassword|varchar(60)|Visitor Password|not null|
 
 ##### คำอธิบายเพิ่มเติม
