@@ -28,7 +28,8 @@
 |CartID|integer|CartID from CartToOut table (foreign key)|[ref: > CartToOut.CartID]|
 |RideID|integer|RideID from Ride table|[ref: > Ride.RideID]|
 |TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|TicketType for price for each of Visitor|[default: "Adult"]|
-|TicketAmount|int|Amount of each TicketType|[check: `TicketAmount > 0`, default: 1]|
+|TicketAmount|int|Amount of each TicketType|[check: `TicketAmount > 0`, default: 1]
+|VisitDate|date|date to visit the park|default: Tomorrow|
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
@@ -40,7 +41,6 @@
 |VId|integer|VId from Visitor table Visitor(foreign key)|[ref: > Visitor.VId]|
 |BookDate|timestamp|time Visitor make Booking|[default: "Current Time"]|
 |Status|enum BookStatus {"Booked","NotBookYet","Used/Expire"}|Status about Visitor making Book yet |[default: "NotBookYet"]|
-|VisitDate|date|Date visitor will be come|[default: "Tomorrow"|
 |TotalPrice|decimal(10,2)|Price of all Ticket that booked||
 
 ##### คำอธิบายเพิ่มเติม
@@ -55,3 +55,11 @@
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
+
+### ตาราง Ticket
+|Attribute|Datatype|Description|Constraints|
+|---|---|---|---|
+|TicketUID|uid|unique identifier of each Ticket|primary key|
+|TicketOwner|int|Owner of this Ticket|ref: - Visitor.VId|
+|RideCartID|integer|Id of RideCart ref from RideCartTable|ref: > RideCart.RideCartID|
+|IsUse|boolean|status that tell is used yet|default: false|
