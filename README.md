@@ -39,7 +39,7 @@
 |---|---|---|---|
 |CartID|serial|unique identifier of CartToOut|primary key|
 |VId|integer|VId from Visitor table Visitor(foreign key)|[ref: > Visitor.VId]|
-|BookDate|timestamp|time Visitor make Booking|[default: "Current Time"]|
+|BookDate|timestamp|time Visitor make Booking|[default: "null"]|
 |Status|enum BookStatus {"Booked","NotBookYet","Used/Expire"}|Status about Visitor making Book yet |[default: "NotBookYet"]|
 |TotalPrice|decimal(10,2)|Price of all Ticket that booked|default 0|
 
