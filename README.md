@@ -49,9 +49,9 @@
 ### ตาราง RideTicketPrice
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|not null, composite key|
+|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|not null|
 |TicketPrice|decimal(10,2)|Price of the ticket|default: 100|
-|RideID|int|in case each Ride differece price|[ref: - Ride.RideID, composite key]|
+|RideID|int|in case each Ride differece price|[ref: - Ride.RideID]|
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
