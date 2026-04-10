@@ -15,7 +15,7 @@
 |---|---|---|---|
 |RideID|serial|unique identifier of Ride|primary key|
 |RideName|varchar(255)|Name of Ride|not null|
-|RideDisct|varchar(n)|Description of Ride||
+|RideDisct|varchar(2000)|Description of Ride||
 |RideImagePath|varcahr(100)|Absolut path of Ride Image||
 
 ##### คำอธิบายเพิ่มเติม
@@ -49,7 +49,7 @@
 ### ตาราง RideTicketPrice
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|not null|
+|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|DEFAULT gen_random_uuid()|
 |TicketPrice|decimal(10,2)|Price of the ticket|default: 100|
 |RideID|int|in case each Ride differece price|[ref: - Ride.RideID]|
 
@@ -59,7 +59,6 @@
 ### ตาราง Ticket
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|TicketUID|uid|unique identifier of each Ticket|primary key|
-|TicketOwner|int|Owner of this Ticket|ref: - Visitor.VId|
+|TicketUID|uuid|unique identifier of each Ticket|primary key|
 |RideCartID|integer|Id of RideCart ref from RideCartTable|ref: > RideCart.RideCartID|
 |IsUse|boolean|status that tell is used yet|default: false|
