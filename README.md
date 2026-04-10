@@ -59,6 +59,6 @@
 ### ตาราง Ticket
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|TicketUID|uuid|unique identifier of each Ticket|primary key|
+|TicketUID|uuid|unique identifier of each Ticket|primary key default gen_random_uuid()|
 |RideCartID|integer|Id of RideCart ref from RideCartTable|ref: > RideCart.RideCartID|
 |IsUse|boolean|status that tell is used yet|default: false|
