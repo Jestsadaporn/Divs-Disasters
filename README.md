@@ -51,7 +51,7 @@
 |---|---|---|---|
 |TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|primary key DEFAULT gen_random_uuid()|
 |TicketPrice|decimal(10,2)|Price of the ticket|default: 100|
-|RideID|int|in case each Ride differece price|primary key [ref: - Ride.RideID]|
+|RideID|int|in case each Ride differece price|primary key [ref: > Ride.RideID]|
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
