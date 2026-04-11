@@ -30,6 +30,7 @@
 |TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|TicketType for price for each of Visitor|[default: "Adult"]|
 |TicketAmount|int|Amount of each TicketType|[check: `TicketAmount > 0`, default: 1]
 |VisitDate|date|date to visit the park|default: curren date|
+|Isfastpass|||
 
 ##### คำอธิบายเพิ่มเติม
 -------------------------
