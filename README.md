@@ -7,10 +7,8 @@
 |VUserName|varchar(60)|Visitor Username|not null, unique|
 |VPassword|varchar(60)|Visitor Password|not null|
 
-คำอธิบายเพิ่มเติม
-ตาราง Visitor  มีหน้าที่ : 
-ตาราง Visitor  เก็บข้อมูล : 
-ตาราง Visitor  ความสัมพันธ์กับตารางอื่น :  
+##### คำอธิบายเพิ่มเติม
+
 --------------------------
 
 ### ตาราง Ride
@@ -22,9 +20,7 @@
 |RideImagePath|varcahr(100)|Absolut path of Ride Image||
 
 ##### คำอธิบายเพิ่มเติม
-####### ตาราง Ride  มีหน้าที่ : 
-####### ตาราง Ride  เก็บข้อมูล : 
-####### ตาราง Ride  ความสัมพันธ์กับตารางอื่น : 
+
 -------------------------
 
 ### ตาราง RideCart
@@ -39,9 +35,7 @@
 |Isfastpass|||
 
 ##### คำอธิบายเพิ่มเติม
-####### ตาราง RideCart  มีหน้าที่ : 
-####### ตาราง RideCart  เก็บข้อมูล : 
-####### ตาราง RideCart  ความสัมพันธ์กับตารางอื่น : 
+
 -------------------------
 
 ### ตาราง CartToOut
@@ -54,9 +48,7 @@
 |TotalPrice|decimal(10,2)|Price of all Ticket that booked|default 0|
 
 ##### คำอธิบายเพิ่มเติม
-####### ตาราง CartToOut  มีหน้าที่ : 
-####### ตาราง CartToOut  เก็บข้อมูล : 
-####### ตาราง CartToOut  ความสัมพันธ์กับตารางอื่น : 
+
 -------------------------
 
 ### ตาราง RideTicketPrice
@@ -67,9 +59,7 @@
 |RideID|int|in case each Ride differece price|primary key [ref: > Ride.RideID]|
 
 ##### คำอธิบายเพิ่มเติม
-####### ตาราง RideTicketPrice  มีหน้าที่ : 
-####### ตาราง RideTicketPrice  เก็บข้อมูล : 
-####### ตาราง RideTicketPrice  ความสัมพันธ์กับตารางอื่น : 
+
 -------------------------
 
 ### ตาราง Ticket
@@ -80,6 +70,4 @@
 |IsUse|boolean|status that tell is used yet|default: false|
 
 ##### คำอธิบายเพิ่มเติม
-####### ตาราง Ticket  มีหน้าที่ : 
-####### ตาราง Ticket  เก็บข้อมูล : 
-####### ตาราง Ticket  ความสัมพันธ์กับตารางอื่น :
+
