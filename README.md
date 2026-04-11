@@ -41,7 +41,7 @@
 |CartID|serial|unique identifier of CartToOut|primary key|
 |VId|integer|VId from Visitor table Visitor(foreign key)|[ref: > Visitor.VId]|
 |BookDate|timestamp|time Visitor make Booking|[default: "null"]|
-|isBookedStatus|boolean |[default: false]|
+|isBookedStatus|boolean |Status of Book|[default: false]|
 |TotalPrice|decimal(10,2)|Price of all Ticket that booked|default 0|
 
 ##### คำอธิบายเพิ่มเติม
