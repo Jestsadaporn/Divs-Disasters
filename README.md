@@ -7,10 +7,10 @@
 |VUserName|varchar(60)|Visitor Username|not null, unique|
 |VPassword|varchar(60)|Visitor Password|not null|
 
-##### คำอธิบายเพิ่มเติม
-####### ตาราง Visitor  มีหน้าที่ : 
-####### ตาราง Visitor  เก็บข้อมูล : 
-####### ตาราง Visitor  ความสัมพันธ์กับตารางอื่น :  
+คำอธิบายเพิ่มเติม
+ตาราง Visitor  มีหน้าที่ : 
+ตาราง Visitor  เก็บข้อมูล : 
+ตาราง Visitor  ความสัมพันธ์กับตารางอื่น :  
 --------------------------
 
 ### ตาราง Ride
