@@ -8,7 +8,10 @@
 |VUserName|varchar(60)|Visitor Username|not null, unique|
 |VPassword|varchar(60)|Visitor Password|not null|
 
-##### คำอธิบายเพิ่มเติม
+#### คำอธิบายเพิ่มเติม : 
+> มีหน้าที่ :เก็บข้อมูลผู้ใช้งาน ระบุตัวตนผู้ใช้ <br>
+> ความสัมพันธ์กับตารางอื่น : CartToOut ระบุชื่อของคนซื้อตั๋ว
+ gun pru
 
 --------------------------
 
@@ -21,6 +24,8 @@
 |RideImagePath|varcahr(100)|Absolut path of Ride Image||
 
 ##### คำอธิบายเพิ่มเติม
+> มีหน้าที่ : เก็บข้อมูลเครื่องเล่น รูปภาพ คำอธิบายเครื่องเล่น <br>
+> ความสัมพันธ์ : คิดราคาของเครื่องเล่นในตาราง RideTicketPrice กับเก็บข้อมูลตั๋วที่จะเพิ่มในตาราง RideCart
 
 -------------------------
 
@@ -30,13 +35,14 @@
 |RideCartID|serial|unique identifier of RideCart|primary key|
 |CartID|integer|CartID from CartToOut table (foreign key)|[ref: > CartToOut.CartID]|
 |RideID|integer|RideID from Ride table|[ref: > Ride.RideID]|
-|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|TicketType for price for each of Visitor|[default: "Adult"]|
+|TicketType|enum TicketType {"Children","Adult","Senior"}|TicketType for price for each of Visitor|[default: "Adult"]|
 |TicketAmount|int|Amount of each TicketType|[check: `TicketAmount > 0`, default: 1]
 |VisitDate|date|date to visit the park|default: curren date|
-|Isfastpass|||
+|Isfastpass|boolean| is User use Fastpass | default : false|
 
 ##### คำอธิบายเพิ่มเติม
-
+> มีหน้าที่ : ตะกร้าเก็บตั๋วได้ชนิดเดียว เครื่องเล่นเดียว ต่อ 1 Rows และบอกว่าผู้ใช้กดใช้งาน Fastpass หรือไม่ <br>
+> ความสัมพันธ์ :  Ticket เอากำหนด UID ของตั๋วแต่ละอัน กับ CartToout โยนข้อมูลเข้าไปใน CartToOut
 -------------------------
 
 ### ตาราง CartToOut
@@ -49,17 +55,21 @@
 |TotalPrice|decimal(10,2)|Price of all Ticket that booked|default 0|
 
 ##### คำอธิบายเพิ่มเติม
+> มีหน้าที่ : เป็นใบเสร็จ และเป็นตะกร้าของของ RideCart ที่ยังไม่ Booked <br>
+> ความสัมพันธ์ : แสดงความเป็นเจ้าของมาจาก Visitor และ RideCart 
 
 -------------------------
 
 ### ตาราง RideTicketPrice
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|TicketType|enum TicketType {"Children","Adult","Senior","Fastpass"}|Type of the Ticket|primary key not null|
+|TicketType|enum TicketType {"Children","Adult","Senior","FastpassPlus"}|Type of the Ticket|primary key not null|
 |TicketPrice|decimal(10,2)|Price of the ticket|default: 100|
 |RideID|int|in case each Ride differece price|primary key [ref: > Ride.RideID]|
 
 ##### คำอธิบายเพิ่มเติม
+> มีหน้าที่ : เก็บข้อมูล ราคาของเครื่องเล่น ที่เอาไว้สำหรับคำนวณราคา <br>
+> ความสัมพันธ์ : กับ Ride บอกราคา 
 
 -------------------------
 
@@ -71,4 +81,6 @@
 |IsUse|boolean|status that tell is used yet|default: false|
 
 ##### คำอธิบายเพิ่มเติม
+> มีหน้าที่ : เก็บ UID ของตั๋วแต่ละอัน และบอกว่าตั๋วถูกใช้งานรึยัง <br>
+> ความสัมพันธ์ : กับ RideCart สร้าง UID ให้กับตั๋วที่ถูกจองไป
 
