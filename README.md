@@ -80,7 +80,7 @@
 |TicketUID|uuid|unique identifier of each Ticket|primary key default gen_random_uuid()|
 |RideCartID|integer|Id of RideCart ref from RideCartTable|ref: > RideCart.RideCartID|
 |IsUse|boolean|status that tell is used yet|default: false|
-|tickettype|tikettype| type of this ticket||
+
 
 ##### คำอธิบายเพิ่มเติม
 > มีหน้าที่ : เก็บ UID ของตั๋วแต่ละอัน และบอกว่าตั๋วถูกใช้งานรึยัง <br>
