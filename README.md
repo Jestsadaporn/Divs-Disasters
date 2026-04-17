@@ -36,8 +36,9 @@
 |RideCartID|serial|unique identifier of RideCart|primary key|
 |CartID|integer|CartID from CartToOut table (foreign key)|[ref: > CartToOut.CartID]|
 |RideID|integer|RideID from Ride table|[ref: > Ride.RideID]|
-|TicketType|enum TicketType {"Children","Adult","Senior"}|TicketType for price for each of Visitor|[default: "Adult"]|
-|TicketAmount|int|Amount of each TicketType|[check: `TicketAmount > 0`, default: 1]
+|seniorticketamount|integer | quantity of senior ticket| default(0) |
+|adultticketamount |integer | quantity of adult ticket| default(0)|
+|childrenticketamount|integer | quantity of children ticket| default(0) |
 |VisitDate|date|date to visit the park|default: curren date|
 |Isfastpass|boolean| is User use Fastpass | default : false|
 
@@ -64,9 +65,8 @@
 ### ตาราง RideTicketPrice
 |Attribute|Datatype|Description|Constraints|
 |---|---|---|---|
-|TicketType|enum TicketType {"Children","Adult","Senior","FastpassPlus"}|Type of the Ticket|primary key not null|
+|TicketType|enum TicketType {"Children","Adult","Senior","FastpassPlus"}|Type of the Ticket|primary key|
 |TicketPrice|decimal(10,2)|Price of the ticket|default: 100|
-|RideID|int|in case each Ride differece price|primary key [ref: > Ride.RideID]|
 
 ##### คำอธิบายเพิ่มเติม
 > มีหน้าที่ : เก็บข้อมูล ราคาของเครื่องเล่น ที่เอาไว้สำหรับคำนวณราคา <br>
@@ -80,6 +80,7 @@
 |TicketUID|uuid|unique identifier of each Ticket|primary key default gen_random_uuid()|
 |RideCartID|integer|Id of RideCart ref from RideCartTable|ref: > RideCart.RideCartID|
 |IsUse|boolean|status that tell is used yet|default: false|
+|tickettype|tikettype| type of this ticket||
 
 ##### คำอธิบายเพิ่มเติม
 > มีหน้าที่ : เก็บ UID ของตั๋วแต่ละอัน และบอกว่าตั๋วถูกใช้งานรึยัง <br>
