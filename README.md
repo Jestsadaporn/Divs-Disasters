@@ -7,6 +7,7 @@
 |VId|serial|unique identifier of Visitor|primary key|
 |VUserName|varchar(60)|Visitor Username|not null, unique|
 |VPassword|varchar(60)|Visitor Password|not null|
+|VImage|varchar(200)|visitor image profile icon|default('https://i.pinimg.com/736x/79/e8/9f/79e89fdc173fed118526a1d32e1aac61.jpg')|
 
 #### คำอธิบายเพิ่มเติม : 
 > มีหน้าที่ :เก็บข้อมูลผู้ใช้งาน ระบุตัวตนผู้ใช้ <br>
